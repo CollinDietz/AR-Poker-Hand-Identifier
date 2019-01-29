@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode6.4
+xcode_project: AR-Poker-Hand-Identifier.xcodeproj
+xcode_scheme: AR-Poker-Hand-Identifier
+xcode_sdk: iphonesimulator8.4
