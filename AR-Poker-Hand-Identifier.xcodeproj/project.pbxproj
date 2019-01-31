@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		725D0B2421FFB95800B41AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D0B2321FFB95800B41AAF /* AppDelegate.swift */; };
+		725D0B2621FFB95800B41AAF /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 725D0B2521FFB95800B41AAF /* art.scnassets */; };
+		725D0B2821FFB95800B41AAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D0B2721FFB95800B41AAF /* ViewController.swift */; };
+		725D0B2B21FFB95800B41AAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725D0B2921FFB95800B41AAF /* Main.storyboard */; };
+		725D0B2D21FFB95900B41AAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 725D0B2C21FFB95900B41AAF /* Assets.xcassets */; };
+		725D0B3021FFB95900B41AAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725D0B2E21FFB95900B41AAF /* LaunchScreen.storyboard */; };
+		725D0B3B21FFB95900B41AAF /* AR_Poker_Hand_IdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D0B3A21FFB95900B41AAF /* AR_Poker_Hand_IdentifierTests.swift */; };
+		725D0B4621FFB95900B41AAF /* AR_Poker_Hand_IdentifierUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D0B4521FFB95900B41AAF /* AR_Poker_Hand_IdentifierUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		725D0B3721FFB95900B41AAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 725D0B1821FFB95800B41AAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 725D0B1F21FFB95800B41AAF;
+			remoteInfo = "AR-Poker-Hand-Identifier";
+		};
+		725D0B4221FFB95900B41AAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 725D0B1821FFB95800B41AAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 725D0B1F21FFB95800B41AAF;
+			remoteInfo = "AR-Poker-Hand-Identifier";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		725D0B2021FFB95800B41AAF /* AR-Poker-Hand-Identifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-Poker-Hand-Identifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		725D0B2321FFB95800B41AAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		725D0B2521FFB95800B41AAF /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		725D0B2721FFB95800B41AAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		725D0B2A21FFB95800B41AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		725D0B2C21FFB95900B41AAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		725D0B2F21FFB95900B41AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		725D0B3121FFB95900B41AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		725D0B3621FFB95900B41AAF /* AR-Poker-Hand-IdentifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR-Poker-Hand-IdentifierTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		725D0B3A21FFB95900B41AAF /* AR_Poker_Hand_IdentifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_Poker_Hand_IdentifierTests.swift; sourceTree = "<group>"; };
+		725D0B3C21FFB95900B41AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		725D0B4121FFB95900B41AAF /* AR-Poker-Hand-IdentifierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR-Poker-Hand-IdentifierUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		725D0B4521FFB95900B41AAF /* AR_Poker_Hand_IdentifierUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_Poker_Hand_IdentifierUITests.swift; sourceTree = "<group>"; };
+		725D0B4721FFB95900B41AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		725D0B1D21FFB95800B41AAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		725D0B3321FFB95900B41AAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		725D0B3E21FFB95900B41AAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		725D0B1721FFB95800B41AAF = {
+			isa = PBXGroup;
+			children = (
+				725D0B2221FFB95800B41AAF /* AR-Poker-Hand-Identifier */,
+				725D0B3921FFB95900B41AAF /* AR-Poker-Hand-IdentifierTests */,
+				725D0B4421FFB95900B41AAF /* AR-Poker-Hand-IdentifierUITests */,
+				725D0B2121FFB95800B41AAF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		725D0B2121FFB95800B41AAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				725D0B2021FFB95800B41AAF /* AR-Poker-Hand-Identifier.app */,
+				725D0B3621FFB95900B41AAF /* AR-Poker-Hand-IdentifierTests.xctest */,
+				725D0B4121FFB95900B41AAF /* AR-Poker-Hand-IdentifierUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		725D0B2221FFB95800B41AAF /* AR-Poker-Hand-Identifier */ = {
+			isa = PBXGroup;
+			children = (
+				725D0B2321FFB95800B41AAF /* AppDelegate.swift */,
+				725D0B2521FFB95800B41AAF /* art.scnassets */,
+				725D0B2721FFB95800B41AAF /* ViewController.swift */,
+				725D0B2921FFB95800B41AAF /* Main.storyboard */,
+				725D0B2C21FFB95900B41AAF /* Assets.xcassets */,
+				725D0B2E21FFB95900B41AAF /* LaunchScreen.storyboard */,
+				725D0B3121FFB95900B41AAF /* Info.plist */,
+			);
+			path = "AR-Poker-Hand-Identifier";
+			sourceTree = "<group>";
+		};
+		725D0B3921FFB95900B41AAF /* AR-Poker-Hand-IdentifierTests */ = {
+			isa = PBXGroup;
+			children = (
+				725D0B3A21FFB95900B41AAF /* AR_Poker_Hand_IdentifierTests.swift */,
+				725D0B3C21FFB95900B41AAF /* Info.plist */,
+			);
+			path = "AR-Poker-Hand-IdentifierTests";
+			sourceTree = "<group>";
+		};
+		725D0B4421FFB95900B41AAF /* AR-Poker-Hand-IdentifierUITests */ = {
+			isa = PBXGroup;
+			children = (
+				725D0B4521FFB95900B41AAF /* AR_Poker_Hand_IdentifierUITests.swift */,
+				725D0B4721FFB95900B41AAF /* Info.plist */,
+			);
+			path = "AR-Poker-Hand-IdentifierUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		725D0B1F21FFB95800B41AAF /* AR-Poker-Hand-Identifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 725D0B4A21FFB95900B41AAF /* Build configuration list for PBXNativeTarget "AR-Poker-Hand-Identifier" */;
+			buildPhases = (
+				725D0B1C21FFB95800B41AAF /* Sources */,
+				725D0B1D21FFB95800B41AAF /* Frameworks */,
+				725D0B1E21FFB95800B41AAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AR-Poker-Hand-Identifier";
+			productName = "AR-Poker-Hand-Identifier";
+			productReference = 725D0B2021FFB95800B41AAF /* AR-Poker-Hand-Identifier.app */;
+			productType = "com.apple.product-type.application";
+		};
+		725D0B3521FFB95900B41AAF /* AR-Poker-Hand-IdentifierTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 725D0B4D21FFB95900B41AAF /* Build configuration list for PBXNativeTarget "AR-Poker-Hand-IdentifierTests" */;
+			buildPhases = (
+				725D0B3221FFB95900B41AAF /* Sources */,
+				725D0B3321FFB95900B41AAF /* Frameworks */,
+				725D0B3421FFB95900B41AAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				725D0B3821FFB95900B41AAF /* PBXTargetDependency */,
+			);
+			name = "AR-Poker-Hand-IdentifierTests";
+			productName = "AR-Poker-Hand-IdentifierTests";
+			productReference = 725D0B3621FFB95900B41AAF /* AR-Poker-Hand-IdentifierTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		725D0B4021FFB95900B41AAF /* AR-Poker-Hand-IdentifierUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 725D0B5021FFB95900B41AAF /* Build configuration list for PBXNativeTarget "AR-Poker-Hand-IdentifierUITests" */;
+			buildPhases = (
+				725D0B3D21FFB95900B41AAF /* Sources */,
+				725D0B3E21FFB95900B41AAF /* Frameworks */,
+				725D0B3F21FFB95900B41AAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				725D0B4321FFB95900B41AAF /* PBXTargetDependency */,
+			);
+			name = "AR-Poker-Hand-IdentifierUITests";
+			productName = "AR-Poker-Hand-IdentifierUITests";
+			productReference = 725D0B4121FFB95900B41AAF /* AR-Poker-Hand-IdentifierUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		725D0B1821FFB95800B41AAF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = SDLC;
+				TargetAttributes = {
+					725D0B1F21FFB95800B41AAF = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					725D0B3521FFB95900B41AAF = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 725D0B1F21FFB95800B41AAF;
+					};
+					725D0B4021FFB95900B41AAF = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 725D0B1F21FFB95800B41AAF;
+					};
+				};
+			};
+			buildConfigurationList = 725D0B1B21FFB95800B41AAF /* Build configuration list for PBXProject "AR-Poker-Hand-Identifier" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 725D0B1721FFB95800B41AAF;
+			productRefGroup = 725D0B2121FFB95800B41AAF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				725D0B1F21FFB95800B41AAF /* AR-Poker-Hand-Identifier */,
+				725D0B3521FFB95900B41AAF /* AR-Poker-Hand-IdentifierTests */,
+				725D0B4021FFB95900B41AAF /* AR-Poker-Hand-IdentifierUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		725D0B1E21FFB95800B41AAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				725D0B2621FFB95800B41AAF /* art.scnassets in Resources */,
+				725D0B3021FFB95900B41AAF /* LaunchScreen.storyboard in Resources */,
+				725D0B2D21FFB95900B41AAF /* Assets.xcassets in Resources */,
+				725D0B2B21FFB95800B41AAF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		725D0B3421FFB95900B41AAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		725D0B3F21FFB95900B41AAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		725D0B1C21FFB95800B41AAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				725D0B2821FFB95800B41AAF /* ViewController.swift in Sources */,
+				725D0B2421FFB95800B41AAF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		725D0B3221FFB95900B41AAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				725D0B3B21FFB95900B41AAF /* AR_Poker_Hand_IdentifierTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		725D0B3D21FFB95900B41AAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				725D0B4621FFB95900B41AAF /* AR_Poker_Hand_IdentifierUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		725D0B3821FFB95900B41AAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 725D0B1F21FFB95800B41AAF /* AR-Poker-Hand-Identifier */;
+			targetProxy = 725D0B3721FFB95900B41AAF /* PBXContainerItemProxy */;
+		};
+		725D0B4321FFB95900B41AAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 725D0B1F21FFB95800B41AAF /* AR-Poker-Hand-Identifier */;
+			targetProxy = 725D0B4221FFB95900B41AAF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		725D0B2921FFB95800B41AAF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				725D0B2A21FFB95800B41AAF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		725D0B2E21FFB95900B41AAF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				725D0B2F21FFB95900B41AAF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		725D0B4821FFB95900B41AAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		725D0B4921FFB95900B41AAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		725D0B4B21FFB95900B41AAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AR-Poker-Hand-Identifier/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SDLC.AR-Poker-Hand-Identifier";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		725D0B4C21FFB95900B41AAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AR-Poker-Hand-Identifier/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SDLC.AR-Poker-Hand-Identifier";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		725D0B4E21FFB95900B41AAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AR-Poker-Hand-IdentifierTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SDLC.AR-Poker-Hand-IdentifierTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AR-Poker-Hand-Identifier.app/AR-Poker-Hand-Identifier";
+			};
+			name = Debug;
+		};
+		725D0B4F21FFB95900B41AAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AR-Poker-Hand-IdentifierTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SDLC.AR-Poker-Hand-IdentifierTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AR-Poker-Hand-Identifier.app/AR-Poker-Hand-Identifier";
+			};
+			name = Release;
+		};
+		725D0B5121FFB95900B41AAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AR-Poker-Hand-IdentifierUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SDLC.AR-Poker-Hand-IdentifierUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AR-Poker-Hand-Identifier";
+			};
+			name = Debug;
+		};
+		725D0B5221FFB95900B41AAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AR-Poker-Hand-IdentifierUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "SDLC.AR-Poker-Hand-IdentifierUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AR-Poker-Hand-Identifier";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		725D0B1B21FFB95800B41AAF /* Build configuration list for PBXProject "AR-Poker-Hand-Identifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				725D0B4821FFB95900B41AAF /* Debug */,
+				725D0B4921FFB95900B41AAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		725D0B4A21FFB95900B41AAF /* Build configuration list for PBXNativeTarget "AR-Poker-Hand-Identifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				725D0B4B21FFB95900B41AAF /* Debug */,
+				725D0B4C21FFB95900B41AAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		725D0B4D21FFB95900B41AAF /* Build configuration list for PBXNativeTarget "AR-Poker-Hand-IdentifierTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				725D0B4E21FFB95900B41AAF /* Debug */,
+				725D0B4F21FFB95900B41AAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		725D0B5021FFB95900B41AAF /* Build configuration list for PBXNativeTarget "AR-Poker-Hand-IdentifierUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				725D0B5121FFB95900B41AAF /* Debug */,
+				725D0B5221FFB95900B41AAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 725D0B1821FFB95800B41AAF /* Project object */;
+}
