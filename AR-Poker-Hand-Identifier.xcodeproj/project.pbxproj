@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EA5A1882206306F00C46EE2 /* SDLC App Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA5A1872206306E00C46EE2 /* SDLC App Icon.png */; };
 		725D0B2421FFB95800B41AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D0B2321FFB95800B41AAF /* AppDelegate.swift */; };
 		725D0B2621FFB95800B41AAF /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 725D0B2521FFB95800B41AAF /* art.scnassets */; };
 		725D0B2821FFB95800B41AAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D0B2721FFB95800B41AAF /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5EA5A1872206306E00C46EE2 /* SDLC App Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SDLC App Icon.png"; path = "../../../Local Mac Files/SDLC App Icon.png"; sourceTree = "<group>"; };
 		725D0B2021FFB95800B41AAF /* AR-Poker-Hand-Identifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-Poker-Hand-Identifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		725D0B2321FFB95800B41AAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		725D0B2521FFB95800B41AAF /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				725D0B2C21FFB95900B41AAF /* Assets.xcassets */,
 				725D0B2E21FFB95900B41AAF /* LaunchScreen.storyboard */,
 				725D0B3121FFB95900B41AAF /* Info.plist */,
+				5EA5A1872206306E00C46EE2 /* SDLC App Icon.png */,
 			);
 			path = "AR-Poker-Hand-Identifier";
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				725D0B2621FFB95800B41AAF /* art.scnassets in Resources */,
 				725D0B3021FFB95900B41AAF /* LaunchScreen.storyboard in Resources */,
 				725D0B2D21FFB95900B41AAF /* Assets.xcassets in Resources */,
+				5EA5A1882206306F00C46EE2 /* SDLC App Icon.png in Resources */,
 				725D0B2B21FFB95800B41AAF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
