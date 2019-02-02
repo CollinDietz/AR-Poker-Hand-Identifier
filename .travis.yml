@@ -1,0 +1,11 @@
+language: swift
+xcode_project: AR-Poker-Hand-Identifier.xcodeproj
+xcode_scheme: AR-Poker-Hand-Identifier
+osx_image: xcode10.1
+xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone XS
+
+
+branches:
+  only:
+  - master
+  - develop
