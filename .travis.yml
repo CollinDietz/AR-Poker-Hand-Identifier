@@ -3,9 +3,11 @@ xcode_project: AR-Poker-Hand-Identifier.xcodeproj
 xcode_scheme: AR-Poker-Hand-Identifier
 osx_image: xcode10.1
 xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone XS
-
-
 branches:
   only:
   - master
   - develop
+  
+notifications:
+  slack:
+    secure: MFlORxIp71o9mwQFU8c6xBKj2/KYx1zOcrMLHIX5snzGpLRdEBT1wVgJhn+5utGi0fdQm/uk76W2wBo4dQhuXEGep7zJornLU5Kik+ibNNKJbj0XQSFhPNNx/XkaqTLZzpiX9K9JNJaOo4yb1YnR8OvEPbesEpY6HiMt8C3uvEPs5jNEjnUSzObtVY3aAuaEC16zG3/rXOh0O8jNgN9Surwrq3Vkst+aT3boO7RhU0VrpUaJTQg7KbW6REqvworXy/XJsFfmX2fjcdY53HoYo7JbVxbyvvis2fQ1XpodEZ7NXDJynDwwPdGF4HneSUw7p8F/p2JLKVR4pt6NaSBQtUmCFchp4kDkqCbYUErA/vvhp8QReLFssvRC1hnJFR76I/HWV0g6LcyYRfwfoCPjCghwzNGZ+gW1aWfV93i9QVHNUDYQnLTxrjHVHkAxAwTI3GHpHy9CYy8GONiUAZHEVdTfg0T7RDhXYuicHOcW+5tCCwS7i/kg9CrXH9/XVrYauFB6CxBqh3odIN2dpXXB30ai/5KFy61opeU604g8KvfcXIx+cbRLJrGGOpsFXX9SNTeM5yOqwF6CwByjDWHzyj+5cIcXZ0bE5JzZGJGGp2tm91SxBnM8eePOY1cxWk5J+QXTQCK7KmNOS8NmiO3pEqt/TxZPD35qH/sISvipTOM=
