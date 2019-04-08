@@ -16,7 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addQH()
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -39,6 +39,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         // Run the view's session
         sceneView.session.run(configuration)
+    }
+    
+    func addQH(x: Float = 0, y: Float = 0, z: Float = -0.5) {
+        guard let QHScene = SCNScene(named: "QH.dae"), let QHNode = QHScene.rootNode.childNode(withName: "QH", recursively: true) else { return }
+        QHNode.position = SCNVector3(x, y, z)
+        sceneView.scene.rootNode.addChildNode(QHNode)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
