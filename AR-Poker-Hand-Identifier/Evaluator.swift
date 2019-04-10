@@ -3,26 +3,26 @@
 //  PokerHandEvaluator
 //
 //  Created by Jacob Chen on 4/8/19.
-//  Copyright © 2019 Jacob Chen. All rights reserved.
+//  Copyright © 2019 SDLC. All rights reserved.
 //
 
 import Foundation
 
 // Create a rank type.
-enum Rank: Int {
+public enum Rank: Int {
     case two = 2, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace;
 }
 
 // Create a suit type.
-enum Suit: String {
-    case clubs;
-    case diamonds;
-    case hearts;
-    case spades;
+public enum Suit: String {
+    case clubs = "C";
+    case diamonds = "D";
+    case hearts = "H";
+    case spades = "S";
 }
 
 // Create a hand type.
-enum HandValue: String {
+public enum HandValue: String {
     case HighCard;
     case OnePair;
     case TwoPair;
@@ -36,10 +36,11 @@ enum HandValue: String {
     case TooMany;
     case TooLittle;
     case Duplicate;
+    case BadCard;
 }
 
 // Class Card that contains both a rank and suit.
-class Card {
+public class Card {
     let rank: Int;
     let suit: String;
     let position: [Float];
@@ -48,29 +49,65 @@ class Card {
         self.suit = suit;
         self.position = [0, 0, 0];
     }
+    
+    // Function for checking if a card is valid. Returns boolean.
+    func isValid() -> Bool {
+        if (rank >= 1 && rank <= 14) {
+            if (suit == "C" || suit == "D" || suit == "H" || suit == "S") {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 // Extension for Card. "Hashable" allows a card object to be stored as a key
 // value in a dictionary by giving it a hash value. Also makes card objects
-// "Equatable" - two can be compared to determine if they are equivalent.
+// "Equatable" - two objects can be compared to determine if they are equivalent.
 extension Card: Hashable {
     public var hashValue: Int {
         return rank.hashValue ^ suit.hashValue;
     }
     
-    static func == (lhs: Card, rhs: Card) -> Bool {
+    public static func == (lhs: Card, rhs: Card) -> Bool {
         return lhs.rank == rhs.rank && lhs.suit == rhs.suit;
     }
 }
 
 // Class Hand that contains an array of Cards in a hand.
-class Hand {
+public class Hand {
     var cards: [Card] = [];
     
     // Function to add a Card.
     // Parameters: Card - card object to add to hand
     func addCard(_ card: Card) {
         cards.append(card);
+    }
+    
+    // Function to allow creation of hand from array of strings.
+    // Parameters: handArray - array of Strings designating a card
+    func addArray(_ handArray: [String]) {
+        for cardString in handArray {
+            let temp = cardString.map(String.init);
+            let rank = String(temp[0]);
+            let suit = String(temp[1]);
+            var rankValue: Int;
+            switch rank {
+                case "T":
+                    rankValue = 10;
+                case "J":
+                    rankValue = 11;
+                case "Q":
+                    rankValue = 12;
+                case "K":
+                    rankValue = 13;
+                case "A":
+                    rankValue = 14;
+                default:
+                    rankValue = Int(rank) ?? 0;
+            }
+            cards.append(Card(rankValue, suit));
+        }
     }
     
     // Function to sort current hand by suit.
@@ -84,7 +121,7 @@ class Hand {
         cards.sort {$0.rank < $1.rank};
     }
     
-    // Function to determine if hand is valid (5 cards, no duplicates)
+    // Function to determine if hand is valid size (5 cards, no duplicates)
     // Returns boolean.
     func isValid() -> Bool {
         if (self.numCards() == 5) {
@@ -98,6 +135,17 @@ class Hand {
             return true;
         }
         return false;
+    }
+    
+    // Function to determine if cards are valid. Returns boolean.
+    func checkCards() -> Bool {
+        var isValid = true;
+        for card in cards {
+            if (!card.isValid()) {
+                isValid = false;
+            }
+        }
+        return isValid;
     }
     
     // Function to count number of cards in hand. Returns integer.
@@ -219,7 +267,7 @@ class Hand {
 
 // Evaluator function for determined the type of Hand.
 // Parameters: Hand - the hand of cards to be evaluated.
-func Evaluator(_ hand: Hand) -> HandValue {
+public func Evaluator(_ hand: Hand) -> HandValue {
     var typeHand: HandValue;
     if (hand.isValid()) { // Check if hand is valid first.
         
@@ -264,7 +312,12 @@ func Evaluator(_ hand: Hand) -> HandValue {
             typeHand = .TooMany;
         }
         else {
-            typeHand = .Duplicate;
+            if (hand.checkCards()) {
+                typeHand = .Duplicate;
+            }
+            else {
+                typeHand = .BadCard;
+            }
         }
     }
     return typeHand;
