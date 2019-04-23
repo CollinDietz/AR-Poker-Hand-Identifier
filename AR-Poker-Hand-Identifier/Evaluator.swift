@@ -50,6 +50,11 @@ public class Card {
         self.position = [0, 0, 0];
     }
     
+    func getLabel() -> String
+    {
+        return String(rank) + suit;
+    }
+    
     // Function for checking if a card is valid. Returns boolean.
     func isValid() -> Bool {
         if (rank >= 1 && rank <= 14) {
@@ -79,9 +84,21 @@ public class Hand {
     var cards: [Card] = [];
     
     // Function to add a Card.
-    // Parameters: Card - card object to add to hand
-    func addCard(_ card: Card) {
-        cards.append(card);
+    // Parameters: Card - card object to add to hand only if not in hand already
+    func addCard(_ card: Card){
+        let needToAddToList:Bool = !cards.contains(where: {$0 == card})
+        if (needToAddToList) {
+            cards.append(card);
+        }
+    }
+    
+    func clear()
+    {
+        cards.removeAll();
+    }
+    
+    func count() -> Int {
+        return cards.count
     }
     
     // Function to allow creation of hand from array of strings.
