@@ -9,40 +9,68 @@
 import UIKit
 import SceneKit
 import ARKit
+import Vision
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var detectedCardLabel: UILabel!
+    @IBOutlet weak var detectedHandLabel: UILabel!
+    
+    @IBAction func addToHand()
+    {
+        if (pokerHand.count() <= 4)
+        {
+            let added:Bool = pokerHand.addCard(currentCard)
+            if(added)
+            {
+                posistion.y /= 6
+                posistion.x -= 0.01
+                posistion.z -= 0.01
+                placeLabel(posistion:posistion, label:currentCard.getLabel())
+                print(currentCard.getLabel())
+                if (pokerHand.count() == 5){
+                    let handType = Evaluator(pokerHand)
+                    DispatchQueue.main.async(execute:{self.detectedHandLabel.text = handType.rawValue})
+                }
+            }
+        }
+        else
+        {
+            print("Too many cards amigo")
+        }
+    }
+    
+    @IBAction func reset()
+    {
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        }
+        pokerHand.clear()
+        DispatchQueue.main.async(execute:{self.detectedHandLabel.text = ""})
+        DispatchQueue.main.async(execute:{self.detectedCardLabel.text = "---"})
+    }
+    
+    var pokerHand: Hand = Hand()
+    var currentCard: Card = Card(-1, "H")
+    var posistion: SCNVector3 = SCNVector3Zero //fix this spelling please
+    
+    private let serialQueue = DispatchQueue(label: "com.hb.dispatchqueueml")
+    private var visionRequests = [VNRequest]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set the view's delegate
         sceneView.delegate = self
-        let loc_x = 0.0
-        let loc_y = 0.02
-        let loc_z = -0.1
-        let label = "QC"
-        placeLabel( loc_x: Float(loc_x), loc_y: Float(loc_y), loc_z: Float(loc_z), label: label)
-      
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-
-        // Run the view's session
-        sceneView.session.run(configuration)
+        setupAR()
+        setupML()
+        loopCoreMLUpdate()
     }
     
-//      Function for adding QH object?
-//    func addQH(x: Float = 0, y: Float = 0, z: Float = -0.5) {
-//        guard let QHScene = SCNScene(named: "QH.dae"), let QHNode = QHScene.rootNode.childNode(withName: "QH", recursively: true) else { return }
-//        QHNode.position = SCNVector3(x, y, z)
-//        sceneView.scene.rootNode.addChildNode(QHNode)
-//    }
-//
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -52,7 +80,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
-    func placeLabel( loc_x: Float, loc_y: Float, loc_z: Float, label: String) {
+    func placeLabel( posistion:SCNVector3, label:String) {
         let start = label.index(label.startIndex, offsetBy: 1)
         let end = label.index(label.endIndex, offsetBy: 0)
         let range = start..<end
@@ -94,8 +122,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         //set position in line 2 and size in line 3
         let node = SCNNode()
-        node.position = SCNVector3(x: loc_x, y: loc_y, z: loc_z)
-        node.scale = SCNVector3(x: 0.01, y:0.01, z:0.01)
+        node.position = posistion
+        let size:Float = 0.003
+        node.scale = SCNVector3(x: size, y:size, z:size)
         node.geometry = Qhtext
         
         //adds node with text object to scene view
@@ -104,27 +133,111 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //adds default lighting for shadows
         sceneView.autoenablesDefaultLighting = true
     }
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+   
+    private func setupML() {
+        guard let selectedModel = try? VNCoreMLModel(for: CardDetector4().model) else {
+            fatalError("Could not load model.")
+        }
         
+        let classificationRequest = VNCoreMLRequest(model: selectedModel,
+                                                    completionHandler: classificationCompleteHandler)
+        visionRequests = [classificationRequest]
     }
     
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+    private func setupAR() {
+        let configuration = ARWorldTrackingConfiguration()
+        sceneView.session.run(configuration)
     }
     
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
+    private func loopCoreMLUpdate() {
+        serialQueue.async {
+            self.updateCoreML()
+            self.loopCoreMLUpdate()
+        }
+    }
+    
+    private func updateCoreML() {
+        let pixbuff : CVPixelBuffer? = (sceneView.session.currentFrame?.capturedImage)
+        if pixbuff == nil { return }
+
+        let ciImage = CIImage(cvPixelBuffer: pixbuff!)
         
+        let imageRequestHandler = VNImageRequestHandler(ciImage: ciImage, options: [:])
+        
+        do {
+            try imageRequestHandler.perform(self.visionRequests)
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func classificationCompleteHandler(request: VNRequest, error: Error?) {
+        if error != nil {
+            print("Error: " + (error?.localizedDescription)!)
+            return
+        }
+        guard let observations = request.results else {
+            return
+        }
+        
+        if(observations.count == 0)
+        {
+            return
+        }
+        
+        let classification = (observations[0] as! VNRecognizedObjectObservation)
+        let indentifier = classification.labels[0].identifier
+        let index = indentifier.index(indentifier.startIndex, offsetBy: 1)
+        let suit:String = String(indentifier[index...])
+        let unicodeSuit:String
+        var capitalSuit:String
+        let rankString = String(indentifier[..<index])
+        
+        if suit == "h" {
+            unicodeSuit = "♥"
+            capitalSuit = "H"
+        }
+        else if suit == "c"{
+            unicodeSuit = "♣"
+            capitalSuit = "C"
+        }
+        else if suit == "s"{
+            unicodeSuit = "♠"
+            capitalSuit = "S"
+        }
+        else if suit == "d"{
+            unicodeSuit = "♦"
+            capitalSuit = "D"
+        }
+        else
+        {
+            unicodeSuit = ""
+            capitalSuit = ""
+        }
+        
+        var rankValue:Int
+        switch rankString {
+        case "J":
+            rankValue = 11;
+        case "Q":
+            rankValue = 12;
+        case "K":
+            rankValue = 13;
+        case "A":
+            rankValue = 14;
+        default:
+            rankValue = Int(rankString) ?? 0
+        }
+        
+        let label = rankString + unicodeSuit
+        currentCard = Card(rankValue, capitalSuit)
+        
+        let imageResolution = sceneView.session.currentFrame!.camera.imageResolution
+
+        posistion.x =  Float(classification.boundingBox.midX) * Float(imageResolution.width)
+        posistion.y = Float(classification.boundingBox.midY) * Float(imageResolution.height)
+        
+        posistion = sceneView.unprojectPoint(posistion)
+        DispatchQueue.main.async(execute:{self.detectedCardLabel.text = label})
     }
 }

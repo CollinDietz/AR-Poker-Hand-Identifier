@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6CACEAB4225E4F1F004D1E3C /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CACEAB3225E4F1F004D1E3C /* Evaluator.swift */; };
+		725CAC9E226F95A00013CB6E /* CardDetector4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 725CAC9D226F95A00013CB6E /* CardDetector4.mlmodel */; };
+		725CACA0226FE3D50013CB6E /* redbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 725CAC9F226FE3D50013CB6E /* redbutton.png */; };
+		725CACA2226FE3DB0013CB6E /* bluebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 725CACA1226FE3DB0013CB6E /* bluebutton.png */; };
 		725D0B2421FFB95800B41AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D0B2321FFB95800B41AAF /* AppDelegate.swift */; };
 		725D0B2621FFB95800B41AAF /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 725D0B2521FFB95800B41AAF /* art.scnassets */; };
 		725D0B2821FFB95800B41AAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D0B2721FFB95800B41AAF /* ViewController.swift */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		6CACEAB3225E4F1F004D1E3C /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
+		725CAC9D226F95A00013CB6E /* CardDetector4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CardDetector4.mlmodel; sourceTree = "<group>"; };
+		725CAC9F226FE3D50013CB6E /* redbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbutton.png; sourceTree = "<group>"; };
+		725CACA1226FE3DB0013CB6E /* bluebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluebutton.png; sourceTree = "<group>"; };
 		725D0B2021FFB95800B41AAF /* AR-Poker-Hand-Identifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-Poker-Hand-Identifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		725D0B2321FFB95800B41AAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		725D0B2521FFB95800B41AAF /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		725D0B2221FFB95800B41AAF /* AR-Poker-Hand-Identifier */ = {
 			isa = PBXGroup;
 			children = (
+				725CAC9D226F95A00013CB6E /* CardDetector4.mlmodel */,
 				6CACEAB3225E4F1F004D1E3C /* Evaluator.swift */,
 				725D0B2321FFB95800B41AAF /* AppDelegate.swift */,
 				725D0B2521FFB95800B41AAF /* art.scnassets */,
@@ -109,6 +116,8 @@
 				725D0B2C21FFB95900B41AAF /* Assets.xcassets */,
 				725D0B2E21FFB95900B41AAF /* LaunchScreen.storyboard */,
 				725D0B3121FFB95900B41AAF /* Info.plist */,
+				725CACA1226FE3DB0013CB6E /* bluebutton.png */,
+				725CAC9F226FE3D50013CB6E /* redbutton.png */,
 			);
 			path = "AR-Poker-Hand-Identifier";
 			sourceTree = "<group>";
@@ -235,10 +244,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725CACA0226FE3D50013CB6E /* redbutton.png in Resources */,
 				725D0B2621FFB95800B41AAF /* art.scnassets in Resources */,
 				725D0B3021FFB95900B41AAF /* LaunchScreen.storyboard in Resources */,
 				725D0B2D21FFB95900B41AAF /* Assets.xcassets in Resources */,
 				725D0B2B21FFB95800B41AAF /* Main.storyboard in Resources */,
+				725CACA2226FE3DB0013CB6E /* bluebutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				725D0B2821FFB95800B41AAF /* ViewController.swift in Sources */,
+				725CAC9E226F95A00013CB6E /* CardDetector4.mlmodel in Sources */,
 				725D0B2421FFB95800B41AAF /* AppDelegate.swift in Sources */,
 				6CACEAB4225E4F1F004D1E3C /* Evaluator.swift in Sources */,
 			);
@@ -442,13 +454,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K78326Z837;
+				DEVELOPMENT_TEAM = C83659LF4F;
 				INFOPLIST_FILE = "AR-Poker-Hand-Identifier/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "SDLC.CS499.AR-Poker-Hand-Identifier";
+				PRODUCT_BUNDLE_IDENTIFIER = "SDLC.CS499.AR-Poker-Hand-Identifier-10";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -462,13 +474,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K78326Z837;
+				DEVELOPMENT_TEAM = C83659LF4F;
 				INFOPLIST_FILE = "AR-Poker-Hand-Identifier/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "SDLC.CS499.AR-Poker-Hand-Identifier";
+				PRODUCT_BUNDLE_IDENTIFIER = "SDLC.CS499.AR-Poker-Hand-Identifier-10";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
