@@ -21,6 +21,13 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hQ-en-wnb">
+                                <rect key="frame" x="25" y="668" width="85" height="85"/>
+                                <state key="normal" image="redbutton.png"/>
+                                <connections>
+                                    <action selector="reset" destination="BV1-FR-VrT" eventType="touchUpInside" id="cMD-RU-3Gu"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detected Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGw-jR-7Vh">
                                 <rect key="frame" x="25" y="69" width="112" height="21"/>
                                 <accessibility key="accessibilityConfiguration" label="Detected Card">
@@ -31,8 +38,35 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbN-Lh-g0P" userLabel="Detected">
-                                <rect key="frame" x="25" y="94" width="37" height="50.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detected Hand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQk-Q0-cBd">
+                                <rect key="frame" x="234" y="69" width="116" height="22"/>
+                                <accessibility key="accessibilityConfiguration" label="Detected Card">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjj-oL-k3c" userLabel="Detected">
+                                <rect key="frame" x="120" y="99" width="234" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Detected">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MON-vZ-gSM">
+                                <rect key="frame" x="259" y="662" width="91" height="91"/>
+                                <state key="normal" image="bluebutton.png"/>
+                                <connections>
+                                    <action selector="addToHand" destination="BV1-FR-VrT" eventType="touchUpInside" id="1gW-8U-nyV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="---" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbN-Lh-g0P" userLabel="Detected">
+                                <rect key="frame" x="25" y="94" width="100" height="51"/>
                                 <accessibility key="accessibilityConfiguration" label="Detected">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
@@ -40,38 +74,39 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MON-vZ-gSM">
-                                <rect key="frame" x="131.66666666666666" y="717" width="112" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Add To Hand"/>
-                                <connections>
-                                    <action selector="addToHand" destination="BV1-FR-VrT" eventType="touchUpInside" id="1gW-8U-nyV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RbN-Lh-g0P" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="25" id="3Os-Oa-D1U"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="9hQ-en-wnb" secondAttribute="bottom" constant="25" id="1zg-yE-QGy"/>
+                            <constraint firstItem="LQk-Q0-cBd" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="25" id="3yK-SK-Nj5"/>
+                            <constraint firstItem="RbN-Lh-g0P" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="50" id="8kt-ek-LpP"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
+                            <constraint firstItem="RbN-Lh-g0P" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="25" id="IhK-C8-hbI"/>
                             <constraint firstItem="nGw-jR-7Vh" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="25" id="Qfg-DN-agn"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="MON-vZ-gSM" secondAttribute="trailing" constant="25" id="UsR-hB-7KT"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="MON-vZ-gSM" secondAttribute="bottom" constant="25" id="b2q-7l-JD6"/>
-                            <constraint firstItem="RbN-Lh-g0P" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="50" id="kfp-QJ-sAX"/>
+                            <constraint firstItem="9hQ-en-wnb" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="25" id="jec-hV-0Af"/>
                             <constraint firstItem="nGw-jR-7Vh" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="25" id="o0O-hD-dhX"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
-                            <constraint firstItem="MON-vZ-gSM" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" id="uJ2-ZG-xXb"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="LQk-Q0-cBd" secondAttribute="trailing" constant="25" id="xV2-sg-MFk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
                         <outlet property="detectedCardLabel" destination="RbN-Lh-g0P" id="IR9-Ju-WYL"/>
+                        <outlet property="detectedHandLabel" destination="bjj-oL-k3c" id="VJf-dP-nI0"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47.826086956521742" y="34.821428571428569"/>
+            <point key="canvasLocation" x="47.200000000000003" y="34.729064039408868"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bluebutton.png" width="91" height="91"/>
+        <image name="redbutton.png" width="85" height="85"/>
+    </resources>
 </document>

@@ -23,16 +23,16 @@ public enum Suit: String {
 
 // Create a hand type.
 public enum HandValue: String {
-    case HighCard;
-    case OnePair;
-    case TwoPair;
-    case ThreeOfAKind;
+    case HighCard = "High Card";
+    case OnePair = "One Pair";
+    case TwoPair = "Two Pair";
+    case ThreeOfAKind = "Three Of A Kind";
     case Straight;
     case Flush;
-    case FullHouse;
-    case FourOfAKind;
-    case StraightFlush;
-    case RoyalFlush;
+    case FullHouse = "Full House";
+    case FourOfAKind = "Four Of A Kind";
+    case StraightFlush = "Straight Flush";
+    case RoyalFlush = "Royal Flush";
     case TooMany;
     case TooLittle;
     case Duplicate;
@@ -52,7 +52,25 @@ public class Card {
     
     func getLabel() -> String
     {
-        return String(rank) + suit;
+        
+        if(rank == -1)
+        {
+            return "--"
+        }
+        var rankS:String;
+        switch rank {
+        case 11:
+            rankS = "J";
+        case 12:
+            rankS = "Q";
+        case 13:
+            rankS = "K";
+        case 14:
+            rankS = "A";
+        default:
+            rankS = String(rank)
+        }
+        return rankS + suit;
     }
     
     // Function for checking if a card is valid. Returns boolean.
@@ -85,11 +103,13 @@ public class Hand {
     
     // Function to add a Card.
     // Parameters: Card - card object to add to hand only if not in hand already
-    func addCard(_ card: Card){
+    func addCard(_ card: Card) -> Bool{
         let needToAddToList:Bool = !cards.contains(where: {$0 == card})
         if (needToAddToList) {
             cards.append(card);
         }
+        
+        return needToAddToList
     }
     
     func clear()

@@ -15,18 +15,45 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var detectedCardLabel: UILabel!
+    @IBOutlet weak var detectedHandLabel: UILabel!
+    
     @IBAction func addToHand()
     {
-        pokerHand.addCard(currentCard)
-        print(currentCard.getLabel())
-        placeLabel(loc_x: posX, loc_y: posY, loc_z: 0, label: currentCard.getLabel())
-        print("Added")
+        if (pokerHand.count() <= 4)
+        {
+            let added:Bool = pokerHand.addCard(currentCard)
+            if(added)
+            {
+                posistion.y /= 6
+                posistion.x -= 0.01
+                posistion.z -= 0.01
+                placeLabel(posistion:posistion, label:currentCard.getLabel())
+                print(currentCard.getLabel())
+                if (pokerHand.count() == 5){
+                    let handType = Evaluator(pokerHand)
+                    DispatchQueue.main.async(execute:{self.detectedHandLabel.text = handType.rawValue})
+                }
+            }
+        }
+        else
+        {
+            print("Too many cards amigo")
+        }
+    }
+    
+    @IBAction func reset()
+    {
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        }
+        pokerHand.clear()
+        DispatchQueue.main.async(execute:{self.detectedHandLabel.text = ""})
+        DispatchQueue.main.async(execute:{self.detectedCardLabel.text = "---"})
     }
     
     var pokerHand: Hand = Hand()
-    var currentCard: Card = Card(1, "H")
-    var posX:Float = 0
-    var posY:Float = 0
+    var currentCard: Card = Card(-1, "H")
+    var posistion: SCNVector3 = SCNVector3Zero //fix this spelling please
     
     private let serialQueue = DispatchQueue(label: "com.hb.dispatchqueueml")
     private var visionRequests = [VNRequest]()
@@ -53,7 +80,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
-    func placeLabel( loc_x: Float, loc_y: Float, loc_z: Float, label: String) {
+    func placeLabel( posistion:SCNVector3, label:String) {
         let start = label.index(label.startIndex, offsetBy: 1)
         let end = label.index(label.endIndex, offsetBy: 0)
         let range = start..<end
@@ -95,8 +122,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         //set position in line 2 and size in line 3
         let node = SCNNode()
-        node.position = SCNVector3(x: loc_x, y: loc_y, z: loc_z)
-        let size:Float = 0.05
+        node.position = posistion
+        let size:Float = 0.003
         node.scale = SCNVector3(x: size, y:size, z:size)
         node.geometry = Qhtext
         
@@ -132,6 +159,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     private func updateCoreML() {
         let pixbuff : CVPixelBuffer? = (sceneView.session.currentFrame?.capturedImage)
         if pixbuff == nil { return }
+
         let ciImage = CIImage(cvPixelBuffer: pixbuff!)
         
         let imageRequestHandler = VNImageRequestHandler(ciImage: ciImage, options: [:])
@@ -204,8 +232,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let label = rankString + unicodeSuit
         currentCard = Card(rankValue, capitalSuit)
         
-        posX = Float(classification.boundingBox.midX)
-        posY = Float(classification.boundingBox.midY)
+        let imageResolution = sceneView.session.currentFrame!.camera.imageResolution
+
+        posistion.x =  Float(classification.boundingBox.midX) * Float(imageResolution.width)
+        posistion.y = Float(classification.boundingBox.midY) * Float(imageResolution.height)
+        
+        posistion = sceneView.unprojectPoint(posistion)
         DispatchQueue.main.async(execute:{self.detectedCardLabel.text = label})
     }
 }
