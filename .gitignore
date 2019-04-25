@@ -17,3 +17,5 @@ profile
 *.moved-aside
 DerivedData
 .idea/
+Tools/dtd
+Tools/*.tar.*
