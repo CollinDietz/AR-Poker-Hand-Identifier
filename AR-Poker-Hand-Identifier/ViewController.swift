@@ -54,7 +54,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
                 posistion.x -= 0.01
                 posistion.z -= 0.01
-                placeLabel(posistion:posistion, label:currentCard.getLabel())
+                placeLabel(posistion:posistion, card:currentCard)
                 if (pokerHand.count() == 5){
                     let handType = Evaluator(pokerHand)
                     DispatchQueue.main.async(execute:{self.detectedHandLabel.text = handType.rawValue})
@@ -111,28 +111,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
-    func placeLabel( posistion:SCNVector3, label:String) {
-        let start = label.index(label.startIndex, offsetBy: 1)
-        let end = label.index(label.endIndex, offsetBy: 0)
-        let range = start..<end
+    func placeLabel( posistion:SCNVector3, card:Card) {
         
-        let suit = label[range]  //sets suit to second character in label string and from there finds correct unicode symbol for suit
-        let start2 = label.index(label.startIndex, offsetBy: 0)
-        let end2 = label.index(label.endIndex, offsetBy: -1)
-        let range2 = start2..<end2
-        
-        var value = label[range2]//stores value of label
-        
-        //checks lettering of suit and matches with unicode symbol
-        value += suit //creates string for label to placed in object
-        let Qhtext = SCNText(string: value, extrusionDepth: 1) //Text object and extrusion depth
+        let Qhtext = SCNText(string: card.getLabel(), extrusionDepth: 1) //Text object and extrusion depth
         
         //Creates material to wrap around my text object and it colors it red if Heart or Diamond and black if CLub or Spade
         let material = SCNMaterial()
-        if suit == "H" || suit == "D" {
+        let suit = card.getSuit()
+        if suit == "♥" || suit == "♦" {
             material.diffuse.contents = UIColor.red
         }
-        if suit == "C" || suit == "S" {
+        if suit == "♣" || suit == "♠" {
             material.diffuse.contents = UIColor.black
         }
         Qhtext.materials = [material]
@@ -204,7 +193,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let classification = (observations[0] as! VNRecognizedObjectObservation)
         let indentifier = classification.labels[0].identifier
-        let index = indentifier.index(indentifier.startIndex, offsetBy: 1)
+        var index:String.Index
+        if(indentifier.count == 2)
+        {
+            index = indentifier.index(indentifier.startIndex, offsetBy: 1)
+        }
+        else
+        {
+            index = indentifier.index(indentifier.startIndex, offsetBy: 2)
+        }
         let suit:String = String(indentifier[index...])
         let unicodeSuit:String
         var capitalSuit:String
@@ -256,6 +253,5 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         posistion = sceneView.unprojectPoint(posistion)
         DispatchQueue.main.async(execute:{self.detectedCardLabel.text = label})
-        print(label)
     }
 }

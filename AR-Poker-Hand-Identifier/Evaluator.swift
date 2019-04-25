@@ -71,6 +71,10 @@ public class Card {
             rankS = String(rank)
         }
         
+        return rankS + getSuit();
+    }
+    
+    func getSuit() -> String {
         var unicodeSuit:String = ""
         if suit == "h" ||  suit == "H"{
             unicodeSuit = "♥"
@@ -84,9 +88,7 @@ public class Card {
         else if  suit == "d" ||  suit == "D"{
             unicodeSuit = "♦"
         }
-        
-        
-        return rankS + unicodeSuit;
+        return unicodeSuit
     }
     
     // Function for checking if a card is valid. Returns boolean.
