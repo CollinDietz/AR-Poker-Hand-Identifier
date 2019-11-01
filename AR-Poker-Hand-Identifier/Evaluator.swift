@@ -70,7 +70,25 @@ public class Card {
         default:
             rankS = String(rank)
         }
-        return rankS + suit;
+        
+        return rankS + getSuit();
+    }
+    
+    func getSuit() -> String {
+        var unicodeSuit:String = ""
+        if suit == "h" ||  suit == "H"{
+            unicodeSuit = "♥"
+        }
+        else if  suit == "c" ||  suit == "C"{
+            unicodeSuit = "♣"
+        }
+        else if  suit == "s" ||  suit == "S"{
+            unicodeSuit = "♠"
+        }
+        else if  suit == "d" ||  suit == "D"{
+            unicodeSuit = "♦"
+        }
+        return unicodeSuit
     }
     
     // Function for checking if a card is valid. Returns boolean.

@@ -16,19 +16,45 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var detectedCardLabel: UILabel!
     @IBOutlet weak var detectedHandLabel: UILabel!
+    @IBOutlet weak var Card1: UILabel!
+    @IBOutlet weak var Card2: UILabel!
+    @IBOutlet weak var Card3: UILabel!
+    @IBOutlet weak var Card4: UILabel!
+    @IBOutlet weak var Card5: UILabel!
+
     
     @IBAction func addToHand()
     {
         if (pokerHand.count() <= 4)
         {
             let added:Bool = pokerHand.addCard(currentCard)
+            
             if(added)
             {
+                switch(pokerHand.count())
+                {
+                case 1:
+                    DispatchQueue.main.async(execute:{self.Card1.text = self.currentCard.getLabel()})
+                case 2:
+                    DispatchQueue.main.async(execute:{self.Card2.text = self.currentCard.getLabel()})
+                case 3:
+                    DispatchQueue.main.async(execute:{self.Card3.text = self.currentCard.getLabel()})
+                case 4:
+                    DispatchQueue.main.async(execute:{self.Card4.text = self.currentCard.getLabel()})
+                case 5:
+                    DispatchQueue.main.async(execute:{self.Card5.text = self.currentCard.getLabel()})
+                default:
+                    print("Too Many")
+                }
+                
                 posistion.y /= 6
+                if(posistion.y < 0.013)
+                {
+                    posistion.y = 0.025
+                }
                 posistion.x -= 0.01
                 posistion.z -= 0.01
-                placeLabel(posistion:posistion, label:currentCard.getLabel())
-                print(currentCard.getLabel())
+                placeLabel(posistion:posistion, card:currentCard)
                 if (pokerHand.count() == 5){
                     let handType = Evaluator(pokerHand)
                     DispatchQueue.main.async(execute:{self.detectedHandLabel.text = handType.rawValue})
@@ -49,6 +75,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         pokerHand.clear()
         DispatchQueue.main.async(execute:{self.detectedHandLabel.text = ""})
         DispatchQueue.main.async(execute:{self.detectedCardLabel.text = "---"})
+        DispatchQueue.main.async(execute:{self.Card1.text = ""})
+        DispatchQueue.main.async(execute:{self.Card2.text = ""})
+        DispatchQueue.main.async(execute:{self.Card3.text = ""})
+        DispatchQueue.main.async(execute:{self.Card4.text = ""})
+        DispatchQueue.main.async(execute:{self.Card5.text = ""})
     }
     
     var pokerHand: Hand = Hand()
@@ -80,42 +111,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
-    func placeLabel( posistion:SCNVector3, label:String) {
-        let start = label.index(label.startIndex, offsetBy: 1)
-        let end = label.index(label.endIndex, offsetBy: 0)
-        let range = start..<end
+    func placeLabel( posistion:SCNVector3, card:Card) {
         
-        let suit = label[range]  //sets suit to second character in label string and from there finds correct unicode symbol for suit
-        let start2 = label.index(label.startIndex, offsetBy: 0)
-        let end2 = label.index(label.endIndex, offsetBy: -1)
-        let range2 = start2..<end2
-        
-        var value = label[range2]//stores value of label
-        
-        //checks lettering of suit and matches with unicode symbol
-        var suitUnicode = ""
-        if suit == "H" {
-            suitUnicode = "♥"
-        }
-        if suit == "C"{
-            suitUnicode = "♣"
-        }
-        if suit == "S"{
-            suitUnicode = "♠"
-        }
-        if suit == "D"{
-            suitUnicode = "♦"
-        }
-        
-        value += suitUnicode //creates string for label to placed in object
-        let Qhtext = SCNText(string: value, extrusionDepth: 1) //Text object and extrusion depth
+        let Qhtext = SCNText(string: card.getLabel(), extrusionDepth: 1) //Text object and extrusion depth
         
         //Creates material to wrap around my text object and it colors it red if Heart or Diamond and black if CLub or Spade
         let material = SCNMaterial()
-        if suit == "H" || suit == "D" {
+        let suit = card.getSuit()
+        if suit == "♥" || suit == "♦" {
             material.diffuse.contents = UIColor.red
         }
-        if suit == "C" || suit == "S" {
+        if suit == "♣" || suit == "♠" {
             material.diffuse.contents = UIColor.black
         }
         Qhtext.materials = [material]
@@ -187,7 +193,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let classification = (observations[0] as! VNRecognizedObjectObservation)
         let indentifier = classification.labels[0].identifier
-        let index = indentifier.index(indentifier.startIndex, offsetBy: 1)
+        var index:String.Index
+        if(indentifier.count == 2)
+        {
+            index = indentifier.index(indentifier.startIndex, offsetBy: 1)
+        }
+        else
+        {
+            index = indentifier.index(indentifier.startIndex, offsetBy: 2)
+        }
         let suit:String = String(indentifier[index...])
         let unicodeSuit:String
         var capitalSuit:String
